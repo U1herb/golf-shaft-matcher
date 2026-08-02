@@ -1,5 +1,5 @@
-const NOTION_FOR_SHARE_PAGE_ID = "2d1f5833-8f65-80fe-9d2f-c6c051a83d0d";
-const NOTION_FOR_SHARE_URL = "https://www.notion.so/2d1f58338f6580fe9d2fc6c051a83d0d?pvs=1";
+const NOTION_CODEX_PAGE_ID = "386f5833-8f65-8075-8db8-d53ba9eb4920";
+const NOTION_CODEX_URL = "https://app.notion.com/p/386f58338f6580758db8d53ba9eb4920?pvs=1";
 const NOTION_VERSION = "2026-03-11";
 
 function text(content) {
@@ -185,7 +185,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        parent: { page_id: NOTION_FOR_SHARE_PAGE_ID },
+        parent: { page_id: NOTION_CODEX_PAGE_ID },
         properties: { title: { title: [{ type: "text", text: { content: page.title } }] } },
         children: page.children.slice(0, 100),
       }),
@@ -194,8 +194,8 @@ export default async function handler(req, res) {
     res.status(200).json({
       pageId: createdPage.id,
       pageUrl: createdPage.url,
-      parentPageId: NOTION_FOR_SHARE_PAGE_ID,
-      parentUrl: NOTION_FOR_SHARE_URL,
+      parentPageId: NOTION_CODEX_PAGE_ID,
+      parentUrl: NOTION_CODEX_URL,
       title: page.title,
       htmlFileName: htmlUpload.fileName,
       htmlFileUploadId: htmlUpload.id,

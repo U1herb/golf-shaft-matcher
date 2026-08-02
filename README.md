@@ -40,7 +40,7 @@ Notionへ直接アップロードする場合は、Notion Integration Tokenが�
 NOTION_TOKEN=secret_から始まる実際のトークン
 ```
 
-4. Notionの `for_share` ページを開き、右上の `...` から対象Integrationを接続
+4. Notionの `CODEX` ページを開き、右上の `...` から対象Integrationを接続
 
 5. devサーバーを再起動
 
@@ -96,7 +96,7 @@ Environment: Production
 
 Vercelの公開URLを知っている人は、PCやスマホからアクセスできます。
 
-Notionへ直接アップロードを押すと、Notionの `for_share` 配下に診断結果ページが作られます。見やすいHTML形式の診断結果は、Notionページ内にHTMLファイルとして添付されます。
+Notionへ直接アップロードを押すと、Notionの `CODEX` 配下に診断結果ページが作られます。見やすいHTML形式の診断結果は、Notionページ内にHTMLファイルとして添付されます。
 
 ## スマホ表示の確認
 

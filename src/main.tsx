@@ -2160,7 +2160,7 @@ function App() {
                       <a href={shareResult.previewUrl} target="_blank" rel="noreferrer">Web表示を見る</a>
                       <a href={`/for_share/${shareResult.notionPageName}`} target="_blank" rel="noreferrer">Notionページ本文</a>
                       <a href={`/for_share/${shareResult.manifestName}`} target="_blank" rel="noreferrer">for_share配置manifest</a>
-                      <span>配置先: Notion for_share ({shareResult.notionParentPageId})</span>
+                      <span>配置先: Notion Codex ({shareResult.notionParentPageId})</span>
                       <span>保管用Markdown: {shareResult.markdownName}</span>
                       <span>MCP用JSON: {shareResult.notionJsonName}</span>
                     </div>
@@ -2174,11 +2174,11 @@ function App() {
             <div className={notionUploadError ? "share-status error" : "share-status"}>
               {notionUploadError || (
                 <>
-                  <span>Notion for_share に作成しました: {notionUploadResult?.title}</span>
+                  <span>Notion Codex に作成しました: {notionUploadResult?.title}</span>
                   {notionUploadResult && (
                     <div className="share-links">
                       <a href={notionUploadResult.pageUrl} target="_blank" rel="noreferrer">Notionページを開く</a>
-                      <a href={notionUploadResult.parentUrl} target="_blank" rel="noreferrer">for_shareを開く</a>
+                      <a href={notionUploadResult.parentUrl} target="_blank" rel="noreferrer">Codexを開く</a>
                       <span>page_id: {notionUploadResult.pageId}</span>
                     </div>
                   )}

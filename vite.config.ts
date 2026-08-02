@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "node:path";
 
-const NOTION_FOR_SHARE_PAGE_ID = "2d1f5833-8f65-80fe-9d2f-c6c051a83d0d";
-const NOTION_FOR_SHARE_URL = "https://www.notion.so/2d1f58338f6580fe9d2fc6c051a83d0d?pvs=1";
+const NOTION_CODEX_PAGE_ID = "386f5833-8f65-8075-8db8-d53ba9eb4920";
+const NOTION_CODEX_URL = "https://app.notion.com/p/386f58338f6580758db8d53ba9eb4920?pvs=1";
 const NOTION_VERSION = "2026-03-11";
 
 function escapeHtml(value: unknown) {
@@ -207,9 +207,9 @@ function buildNotionDropManifest(payload: any, files: Record<string, string>) {
   return {
     destination: {
       type: "page_id",
-      page_id: NOTION_FOR_SHARE_PAGE_ID,
-      url: NOTION_FOR_SHARE_URL,
-      title: "for_share",
+      page_id: NOTION_CODEX_PAGE_ID,
+      url: NOTION_CODEX_URL,
+      title: "CODEX",
     },
     create_page: {
       properties: { title },
@@ -220,7 +220,7 @@ function buildNotionDropManifest(payload: any, files: Record<string, string>) {
       readable_markdown: files.markdown,
       notion_blocks_json: files.notionBlocksJson,
     },
-    note: "Notion MCPでfor_share配下に子ページを作る場合は、content_fileの本文をcontentに渡してください。HTMLはローカルプレビュー用です。",
+    note: "Notion MCPでCODEX配下に子ページを作る場合は、content_fileの本文をcontentに渡してください。HTMLはローカルプレビュー用です。",
   };
 }
 
@@ -284,7 +284,7 @@ async function createNotionPage(payload: any, env: Record<string, string>, optio
       "Notion-Version": NOTION_VERSION,
     },
     body: JSON.stringify({
-      parent: { page_id: NOTION_FOR_SHARE_PAGE_ID },
+      parent: { page_id: NOTION_CODEX_PAGE_ID },
       properties: {
         title: {
           title: [{ type: "text", text: { content: page.title } }],
@@ -303,8 +303,8 @@ async function createNotionPage(payload: any, env: Record<string, string>, optio
   return {
     pageId: data.id,
     pageUrl: data.url,
-    parentPageId: NOTION_FOR_SHARE_PAGE_ID,
-    parentUrl: NOTION_FOR_SHARE_URL,
+    parentPageId: NOTION_CODEX_PAGE_ID,
+    parentUrl: NOTION_CODEX_URL,
     title: page.title,
   };
 }
@@ -490,8 +490,8 @@ function shareExportPlugin(env: Record<string, string>) {
               notionJsonPath,
               manifestName,
               manifestPath,
-              notionParentPageId: NOTION_FOR_SHARE_PAGE_ID,
-              notionParentUrl: NOTION_FOR_SHARE_URL,
+              notionParentPageId: NOTION_CODEX_PAGE_ID,
+              notionParentUrl: NOTION_CODEX_URL,
               previewUrl: `/for_share/${fileName}`,
             }));
           } catch (error) {
